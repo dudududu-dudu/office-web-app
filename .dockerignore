@@ -1,0 +1,12 @@
+.git
+.gitignore
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.vscode/
+.idea/
+node_modules/
+dist/
+build/
