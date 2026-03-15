@@ -1560,7 +1560,7 @@ hr.fancy::before {
 	background-repeat: no-repeat;
 	background       : center center;
 	background-size  : contain;
-	background-image : url(../images/icons/icon-quote.svg);
+	background-image : url(../assets/images/icons/icon-quote.svg);
 	transform        : translate(-50%, 0, 0);
 	position         : absolute;
 	top              : var(--vspace-1);
@@ -3536,6 +3536,14 @@ td:last-child {
 
 .s-pagecontent .pagination {
 	margin-top: var(--vspace-2);
+}
+
+.overwriteBottonBorder {
+	padding-bottom: 0 !important;
+}
+
+.marginTop60 {
+	margin-top: 60px !important;
 }
 
 /* ------------------------------------------------------------------- 

@@ -13,9 +13,9 @@
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/styles.css">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
 </head>
 
@@ -34,7 +34,7 @@
         <div class="s-header__block">
           <div class="s-header__logo">
             <a class="logo" href="index.html">
-              <img src="images/kaetsu_panda_only.svg" alt="Homepage">
+              <img src="assets/images/kaetsu_panda_only.svg" alt="Homepage">
             </a>
           </div>
           <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
@@ -48,7 +48,6 @@
             <li><a href="inheritance-international.html">国际继承</a></li>
             <li><a href="faq.html">常见问题</a></li>
             <li class="current"><a href="office.html">事务所介绍</a></li>
-            <li><a href="contact.html">联系我们</a></li>
           </ul>
 
           <div class="s-header__contact">
@@ -71,32 +70,37 @@
         </div>
       </section>
 
-      <section class="s-pagecontent pagecontent">
-
-        <div class="row pageintro">
-          <div class="column xl-6 lg-12">
-            <h2 class="text-display-title">专业、清晰、可沟通。</h2>
-          </div>
-          <div class="column xl-6 lg-12 u-flexitem-x-right">
-            <p class="lead">
-              我们以大阪为据点，为在日华人及国际客户提供法律相关手续支持。
-              为提高沟通效率，建议预约面谈并提前简述咨询事项。
-            </p>
-            <div class="u-add-top-1">
-              <a class="btn btn--primary" href="#0" data-open-consult>预约咨询</a>
-              <a class="btn btn--stroke u-add-left-0-5" href="contact.html">联系方式</a>
-            </div>
-          </div>
-        </div>
-
+      <section class="s-pagecontent pagecontent overwriteBottonBorder">
         <div class="row width-narrower pagemain">
           <div class="column xl-12">
+
+            <h2 id="office-philosophy">事务所的理念</h2>
+            <p>
+              站在相同的角度，以亲切和细致的态度。<br>
+              为了让您在日本的生活更加安心和愉快，我们将全力支持。
+            </p>
+
+            <h2 id="greeting-title" class="u-add-top-1-5">问候</h2>
+            <p id="greeting-body">
+              我是司法书士・行政书士王悦。<br>
+              出生于中国，在日本生活多年，以司法书士・行政书士的身份为大家提供法律服务。<br>
+              在以外国人身份在日本生活的过程中，我面临过相继、不动产登记、公司设立等许多复杂的手续和不安。<br>
+              基于这些经历，我希望能够帮助同为在日中国人的各位安心地在日本生活，在生活的各个场景中以法律工作者的身份陪伴大家，因此创办了这个事务所。<br>
+              无论用中文还是日文，我都重视为大家营造安心的咨询环境。<br>
+              我的目标是成为"遇到困难时首先可以咨询的地方"，提供易懂、贴心的支持。<br>
+              希望您在日本的生活变得更加安心、更加充实和愉快。
+            </p>
+
+            <hr class="u-add-top-2 u-add-bottom-2">
 
             <h2>基本信息</h2>
             <p>
               <strong>代表司法书士：</strong>王 悦<br>
               <strong>所属司法书士会：</strong>大阪司法书士会<br>
-              <strong>登记编号/注册号：</strong>5404<br>
+              <strong>登録番号：</strong>5404<br>
+              <strong>大阪行政书士会：</strong>第25263259号 <br>
+              <strong>簡裁訴訟代理関係業務認定番号：</strong>2401298<br>
+              <strong>入国管理局申请取次行政书士 </strong><br>
               <strong>可提供语言：</strong>中文、日语
             </p>
 
@@ -112,17 +116,28 @@
             rel="noopener noreferrer"
             >
             <img
-            src="images/thumbs/location/office-map.jpg"
+            src="assets/images/thumbs/location/office-map.jpg"
             />
             </a>
 
 
             <h2 class="u-add-top-1-5">营业时间与支付方式</h2>
-            <p>
+           
               <strong>营业时间：</strong>工作日 10:00–18:00<br>
+              <strong>支付方式：</strong>现金 / 银行转账（仅限这两种方式）<br>
               <strong>咨询方式：</strong>来所面谈 / 线上面谈均可<br>
-              <strong>支付方式：</strong>现金 / 银行转账（仅限这两种方式）
-            </p>
+              <div>
+                  <strong>邮箱</strong><br>
+                  <a href="mailto:kaetu2025@gmail.com">kaetu2025@gmail.com</a>
+              </div>
+              <div>
+                  <strong>电话</strong>
+                  <ul class="contact-list">
+                      <a href="tel:0666168879">06-6616-8879</a>
+                  </ul>
+              </div>              
+
+            
 
             <h2 class="u-add-top-1-5">咨询流程</h2>
             <ol>
@@ -132,12 +147,87 @@
               <li>办理：推进手续并同步进度，完成后交付成果与资料。</li>
             </ol>
 
-            <div class="u-add-top-1-5">
-              <a class="btn btn--primary u-fullwidth" href="#0" data-open-consult>立即预约咨询</a>
-            </div>
-
           </div>
         </div>
+        <section class="s-testimonials">
+
+            <div class="s-testimonials__header row row-x-center text-center">
+                <div class="column xl-8 lg-12">
+
+                    <p class="text-pretitle">
+                    客户反馈
+                    </p>
+                    <h3>
+                    来自客户的真实评价
+                    </h3>                        
+
+                </div>
+            </div> <!--end s-testimonials__header -->
+
+            <div class="row s-testimonials__content">
+                <div class="column xl-12 testimonials">
+
+                    <div class="swiper-container testimonials__slider page-slider">
+
+                        <div class="swiper-wrapper">
+                            <div class="testimonials__slide swiper-slide">
+                                <p>
+                                沟通很顺畅，办理流程解释得很清楚，让人安心。预约安排也很灵活，整体体验很好。
+                                </p>
+                                <div class="testimonials__author">
+                                    <img src="assets/images/avatars/user.jpg" alt="客户头像" class="testimonials__avatar">
+                                    <cite class="testimonials__cite">
+                                        <strong>客户A</strong>
+                                        <span>东京</span>
+                                    </cite>
+                                </div>
+                            </div>
+                            <div class="testimonials__slide swiper-slide">
+                                <p>
+                                可以用中文咨询非常方便，线上面谈也很省时间。回复及时，细节交代到位。
+                                </p>
+                                <div class="testimonials__author">
+                                    <img src="assets/images/avatars/user.jpg" alt="客户头像" class="testimonials__avatar">
+                                    <cite class="testimonials__cite">
+                                        <strong>客户B</strong>
+                                        <span>关西地区</span>
+                                    </cite>
+                                </div>
+                            </div>
+                            <div class="testimonials__slide swiper-slide">
+                                <p>
+                                从初次咨询到后续说明都很耐心，费用与步骤讲得明明白白，能够放心推进。
+                                </p>
+                                <div class="testimonials__author">
+                                    <img src="assets/images/avatars/user.jpg" alt="客户头像" class="testimonials__avatar">
+                                    <cite class="testimonials__cite">
+                                        <strong>客户C</strong>
+                                        <span>线上</span>
+                                    </cite>
+                                </div>
+                            </div>
+                            <div class="testimonials__slide swiper-slide">
+                                <p>
+                                地点离地铁很近，来所非常方便。整体处理专业且效率高，推荐给有需要的人。
+                                </p>
+                                <div class="testimonials__author">
+                                    <img src="assets/images/avatars/user.jpg" alt="客户头像" class="testimonials__avatar">
+                                    <cite class="testimonials__cite">
+                                        <strong>客户D</strong>
+                                        <span>大阪</span>
+                                    </cite>
+                                </div>
+                            </div> 
+                        </div> <!-- end swiper-wrapper --> 
+
+                        <div class="swiper-pagination"></div>
+
+                    </div> <!--end testimonials__slider --> 
+
+                </div> <!-- testimonials -->
+            </div> <!--end s-testimonials__content -->
+
+        </section> <!-- end s-testimonials -->
       </section>
 
     </section>
@@ -162,7 +252,6 @@
             <li><a href="inheritance-international.html">国际继承</a></li>
             <li><a href="faq.html">常见问题</a></li>
             <li><a href="office.html">事务所介绍</a></li>
-            <li><a href="contact.html">联系我们</a></li>
           </ul>
         </div>
 
@@ -220,7 +309,7 @@
         <h3 class="consult-dialog__title">立即咨询（WeChat / LINE）</h3>
         <p class="consult-dialog__desc">请扫码添加，或直接通过邮件/电话联系我们。</p>
         <div class="consult-dialog__qr">
-          <img src="images/qr/wechat-line.jpg" alt="咨询二维码">
+          <img src="assets/images/qr/wechat-line.jpg" alt="咨询二维码">
         </div>
         <div class="consult-dialog__meta">
           <p><strong>邮箱：</strong><a href="mailto:kaetu2025@gmail.com">kaetu2025@gmail.com</a></p>
