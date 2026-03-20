@@ -2,9 +2,9 @@
 
 ## ✅ 整理任务完成
 
-**日期**: 2026-03-15  
-**完成人**: Claude Code Assistant  
-**分支**: prince  
+**日期**: 2026-03-15
+**完成人**: Claude Code Assistant
+**分支**: prince
 **状态**: ✅ 已完成并验证
 
 ---
@@ -37,13 +37,13 @@
 ## 🗂️ 新目录结构
 
 ```
-office-web-app/
+site/
 ├── assets/images/                 # ← 所有图片文件现在都在这里
 │   ├── avatars/                   # 头像
-│   ├── clients/                   # 客户Logo（11个SVG）
+│   ├── clients/                   # 客户Logo（10个SVG）
 │   ├── icons/                     # 图标（3个SVG）
 │   ├── qr/                        # 二维码
-│   ├── thumbs/                    # 缩略图（8个子分类）
+│   ├── thumbs/                    # 缩略图（4个子分类）
 │   ├── (17个根-level图片文件)     # Logo、背景、样本等
 │   └── (6个favicon文件)           # 网站图标
 ├── css/                           # 样式（不变）
@@ -157,22 +157,28 @@ background-image: url(../assets/images/icons/icon-quote.svg);
 
 ### 本地开发
 ```bash
-python run_server.py -p 8080 -o
+# Python 方式
+cd site && python run_server.py -p 8080
 # 完全兼容，无需修改
+
+# Docker Compose 方式（推荐）
+docker compose up -d --build
+# 访问 http://localhost
 ```
 
-### Docker 部署
+### 生产部署
 ```bash
-docker build -t office-web-app .
-docker run -p 8080:8080 office-web-app
-# 自动包含 assets 目录，无需调整
+# Docker Compose 双实例架构
+docker compose up -d --build
+# Nginx LB 自动代理到 site-1 / site-2
+# 静态文件通过 Dockerfile.site COPY 进镜像
 ```
 
 ### CDN 配置
 现在可以轻松配置 `assets/` 目录到 CDN：
 ```nginx
 location /assets/ {
-    proxy_pass https://cdn.example.com/assets/;
+    proxy_pass https://cdn.kaetsukokusai.com/assets/;
 }
 ```
 
@@ -184,7 +190,6 @@ location /assets/ {
 2. **创建 `assets/css/` 目录** (将CSS迁移出root level)
 3. **添加 `.gitignore`** 用于large media files
 4. **考虑图片优化** (webp格式, 压缩等)
-5. **更新部署文档** 反映新的目录结构
 
 ---
 
@@ -197,9 +202,9 @@ location /assets/ {
 
 ---
 
-**整理完成**: 2026-03-15 16:18 UTC+8  
-**验证状态**: ✅ 通过  
-**可正式提交**: Yes  
+**整理完成**: 2026-03-15 16:18 UTC+8
+**验证状态**: ✅ 通过
+**可正式提交**: Yes
 
 ---
 

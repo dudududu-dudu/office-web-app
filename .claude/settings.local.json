@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker exec:*)",
+      "Bash(for i:*)",
+      "Bash(do curl:*)",
+      "Bash(done)",
+      "Bash(docker stop:*)",
+      "Bash(curl -s -o /dev/null -w \"  HTTP %{http_code}\\\\n\" http://localhost/)",
+      "Bash(docker start:*)"
+    ]
+  }
+}

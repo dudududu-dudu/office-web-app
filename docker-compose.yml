@@ -1,0 +1,50 @@
+services:
+  # ---------- Static site instance 1 ----------
+  site-1:
+    build:
+      context: .
+      dockerfile: site/Dockerfile.site
+    container_name: office-site-1
+    restart: unless-stopped
+    expose:
+      - "80"
+
+  # ---------- Static site instance 2 ----------
+  site-2:
+    build:
+      context: .
+      dockerfile: site/Dockerfile.site
+    container_name: office-site-2
+    restart: unless-stopped
+    expose:
+      - "80"
+
+  # ---------- Nginx (SSL + load balancer) ----------
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile.nginx
+    container_name: office-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - letsencrypt:/etc/letsencrypt:ro
+      - certbot-www:/var/www/certbot:ro
+    depends_on:
+      - site-1
+      - site-2
+
+  # ---------- Certbot (certificate management) ----------
+  certbot:
+    image: certbot/certbot:latest
+    container_name: office-certbot
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - certbot-www:/var/www/certbot
+      - ./certbot/renewal-hooks/deploy:/etc/letsencrypt/renewal-hooks/deploy
+
+volumes:
+  letsencrypt:
+  certbot-www:

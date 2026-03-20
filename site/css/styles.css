@@ -1519,7 +1519,7 @@ hr.fancy::before {
 .lead,
 .attention-getter {
 	font-family: var(--font-1);
-	font-size  : var(--text-md);
+	font-size  : var(--text-size);
 	line-height: var(--vspace-1_25);
 }
 
@@ -1527,7 +1527,7 @@ hr.fancy::before {
 
 	.lead,
 	.attention-getter {
-		font-size  : calc(var(--text-size) * 1.1);
+		font-size  : calc(var(--text-size) * 0.9);
 		line-height: calc(1.125 * var(--space));
 	}
 }
@@ -2762,7 +2762,7 @@ td:last-child {
 
 .text-pretitle {
 	font-family: var(--font-1);
-	font-size  : var(--text-md);
+	font-size  : var(--text-size);
 	line-height: var(--vspace-1);
 	color      : var(--color-1);
 	transform  : translate(0.2em, 0);
@@ -2770,7 +2770,7 @@ td:last-child {
 }
 
 .text-display-title {
-	font-size     : var(--text-display-2);
+	font-size     : var(--text-xxxl);
 	line-height   : 1.0606;
 	letter-spacing: -0.012em;
 	color         : var(--color-text-dark);
@@ -3011,7 +3011,7 @@ td:last-child {
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 1200px) {
 	.text-display-title {
-		font-size: clamp(4rem, 8vw, var(--text-display-2));
+		font-size: clamp(3.2rem, 6vw, var(--text-xxxl));
 	}
 }
 
@@ -3509,7 +3509,7 @@ td:last-child {
 
 .s-pageheader .page-title {
 	margin-top : 0;
-	font-size  : clamp(5.2rem, 10vw, var(--text-huge-1));
+	font-size  : clamp(3.4rem, 6vw, var(--text-xxxl));
 	line-height: 1.0465;
 	color      : var(--color-3);
 }
@@ -3573,6 +3573,27 @@ td:last-child {
 	.s-pagecontent {
 		padding-top: var(--vspace-3);
 	}
+}
+
+.s-pagecontent h2,
+.s-about h2:not(.text-display-title),
+.s-expertise h2:not(.text-display-title),
+.s-cta h2:not(.text-display-title) {
+	font-size: var(--text-lg);
+}
+
+.s-pagecontent h3,
+.s-expertise h3,
+.s-about h3,
+.s-cta h3 {
+	font-size: var(--text-md);
+}
+
+.s-pagecontent h4,
+.s-expertise h4,
+.s-about h4,
+.s-cta h4 {
+	font-size: var(--text-sm);
 }
 
 
@@ -3639,7 +3660,7 @@ td:last-child {
 }
 
 .s-intro__content-title {
-	font-size    : clamp(5rem, 7vw, 6.6rem);
+	font-size    : clamp(3.8rem, 5.5vw, 5rem);
 	line-height  : 1;
 	margin-top   : 0;
 	margin-bottom: var(--vspace-1_25);
@@ -3862,7 +3883,7 @@ td:last-child {
 	}
 
 	.s-intro__content-title {
-		font-size: clamp(4rem, 10vw, 10.4rem);
+		font-size: clamp(3rem, 8vw, 8rem);
 	}
 
 	.s-intro__content-title br {
@@ -4463,7 +4484,7 @@ td:last-child {
 
 .entry__title {
 	margin-top : 0;
-	font-size  : clamp(5rem, 7vw, var(--text-display-3));
+	font-size  : clamp(3.8rem, 5.5vw, var(--text-display-1));
 	line-height: 1.1163;
 	color      : var(--color-3);
 }
@@ -4762,4 +4783,70 @@ footer .s-footer__content > .column {
 footer .s-footer__content > .column ul.link-list {
 	display: inline-block;
 	text-align: left;
+}
+
+/* -------------------------------------------------------------------
+ * ## consult dialog
+ * ------------------------------------------------------------------- */
+.consult-dialog {
+	border: none;
+	border-radius: 1.2rem;
+	padding: 0;
+	max-width: 360px;
+	max-height: none;
+	overflow: visible;
+	box-shadow: 0 1.2rem 4rem rgba(0, 0, 0, 0.25);
+}
+
+.consult-dialog::backdrop {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.consult-dialog__inner {
+	padding: 1.6rem;
+	overflow: visible;
+}
+
+.consult-dialog__close {
+	position: absolute;
+	top: 1rem;
+	right: 1.2rem;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	cursor: pointer;
+	line-height: 1;
+	color: var(--color-text);
+}
+
+.consult-dialog__title {
+	font-size: var(--text-md);
+	margin-top: 0;
+	margin-bottom: 0.8rem;
+}
+
+.consult-dialog__desc {
+	font-size: var(--text-sm);
+	margin-bottom: 1.2rem;
+}
+
+.consult-dialog__qr img {
+	width: 100%;
+	height: auto;
+	border-radius: 0.6rem;
+}
+
+.consult-dialog__meta {
+	margin-top: 1.2rem;
+	font-size: var(--text-xs);
+}
+
+.consult-dialog__meta p {
+	margin-bottom: 0.4rem;
+}
+
+@media screen and (max-width: 600px) {
+	.consult-dialog {
+		max-width: 90vw;
+	}
 }

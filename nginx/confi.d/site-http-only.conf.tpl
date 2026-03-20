@@ -1,0 +1,30 @@
+# -------------------------------------------------------
+# HTTP-only mode  (used BEFORE first certificate exists)
+# -------------------------------------------------------
+upstream site_backend {
+    random;
+    server site-1:80 max_fails=3 fail_timeout=10s;
+    server site-2:80 max_fails=3 fail_timeout=10s;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name kaetsukokusai.com www.kaetsukokusai.com _;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        proxy_pass         http://site_backend;
+        proxy_http_version 1.1;
+        proxy_set_header   Host              $host;
+        proxy_set_header   X-Real-IP         $remote_addr;
+        proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+
+        proxy_next_upstream error timeout http_502 http_503 http_504;
+        proxy_next_upstream_tries 2;
+    }
+}

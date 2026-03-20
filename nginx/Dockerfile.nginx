@@ -1,0 +1,21 @@
+FROM nginx:1.27-alpine
+
+RUN mkdir -p /var/www/certbot /etc/nginx/templates \
+    && rm -f /etc/nginx/conf.d/default.conf
+
+COPY ./nginx/nginx.conf                       /etc/nginx/nginx.conf
+COPY ./nginx/ssl-params.conf                  /etc/nginx/ssl-params.conf
+
+# Config templates — entrypoint picks the right one based on cert existence
+COPY ./nginx/confi.d/site-http.conf           /etc/nginx/templates/site-http.conf.tpl
+COPY ./nginx/confi.d/site-https.conf          /etc/nginx/templates/site-https.conf.tpl
+COPY ./nginx/confi.d/site-http-only.conf.tpl  /etc/nginx/templates/site-http-only.conf.tpl
+
+COPY ./nginx/docker-entrypoint-extra.sh       /docker-entrypoint-extra.sh
+RUN sed -i 's/\r$//' /docker-entrypoint-extra.sh \
+    && chmod +x /docker-entrypoint-extra.sh
+
+ENTRYPOINT ["/docker-entrypoint-extra.sh"]
+CMD ["nginx", "-g", "daemon off;"]
+
+EXPOSE 80 443
