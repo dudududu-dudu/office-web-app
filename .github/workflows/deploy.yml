@@ -27,7 +27,7 @@ jobs:
 
       - name: Upload HTML files
         run: |
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*" \
             --include "*.html" \
             --content-type "text/html; charset=utf-8" \
@@ -35,7 +35,7 @@ jobs:
 
       - name: Upload CSS files
         run: |
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*" \
             --include "css/*.css" \
             --content-type "text/css; charset=utf-8" \
@@ -43,44 +43,47 @@ jobs:
 
       - name: Upload JS files
         run: |
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*" \
             --include "js/*.js" \
             --content-type "application/javascript; charset=utf-8" \
             --cache-control "public, max-age=31536000, immutable"
 
-      - name: Upload images and other assets
+      - name: Upload SVG files
         run: |
-          # SVG
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*" \
             --include "*.svg" \
             --content-type "image/svg+xml" \
             --cache-control "public, max-age=2592000"
 
-          # JPEG
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+      - name: Upload JPEG files
+        run: |
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*" \
             --include "*.jpg" --include "*.jpeg" \
             --content-type "image/jpeg" \
             --cache-control "public, max-age=2592000"
 
-          # PNG
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+      - name: Upload PNG files
+        run: |
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*" \
             --include "*.png" \
             --content-type "image/png" \
             --cache-control "public, max-age=2592000"
 
-          # ICO
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+      - name: Upload ICO files
+        run: |
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*" \
             --include "*.ico" \
             --content-type "image/x-icon" \
             --cache-control "public, max-age=2592000"
 
-          # WebP
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+      - name: Upload WebP files
+        run: |
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*" \
             --include "*.webp" \
             --content-type "image/webp" \
@@ -88,7 +91,7 @@ jobs:
 
       - name: Upload web manifest and other files
         run: |
-          aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
+          aws s3 cp site/ s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --exclude "*.html" \
             --exclude "css/*" \
             --exclude "js/*" \
@@ -101,7 +104,7 @@ jobs:
             --exclude "*.py" \
             --exclude "*.md"
 
-      - name: Delete removed files from S3
+      - name: Clean up deleted files from S3
         run: |
           aws s3 sync site/ s3://${{ secrets.AWS_S3_BUCKET }} \
             --delete \
