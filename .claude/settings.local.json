@@ -8,7 +8,8 @@
       "Bash(docker stop:*)",
       "Bash(curl -s -o /dev/null -w \"  HTTP %{http_code}\\\\n\" http://localhost/)",
       "Bash(docker start:*)",
-      "Bash(aws s3api:*)"
+      "Bash(aws s3api:*)",
+      "Bash(grep -r \"href=\"\"#0\"\"\" /c/Users/tosei/Downloads/office-web-app-1.0.0/site/*.html)"
     ]
   }
 }
