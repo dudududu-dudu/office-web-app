@@ -13,6 +13,15 @@
 
     function openDialog(e) {
       if (e) e.preventDefault();
+
+      // close mobile menu if open
+      var body = document.body;
+      var toggle = document.querySelector('.s-header__menu-toggle');
+      if (body.classList.contains('menu-is-open')) {
+        body.classList.remove('menu-is-open');
+        if (toggle) toggle.classList.remove('is-clicked');
+      }
+
       if (typeof dialog.showModal === 'function') {
         dialog.showModal();
       } else {
