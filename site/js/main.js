@@ -61,6 +61,9 @@
 
             link.addEventListener("click", function(event) {
 
+                // don't close menu for consult button – let consult-dialog.js handle it
+                if (link.hasAttribute('data-open-consult')) return;
+
                 // at 900px and below
                 if (window.matchMedia('(max-width: 900px)').matches) {
                     toggleButton.classList.toggle('is-clicked');

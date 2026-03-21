@@ -3757,8 +3757,11 @@ td:last-child {
 	display        : flex;
 	justify-content: center;
 	align-items    : center;
-	height         : var(--vspace-1_5);
-	width          : var(--vspace-1_5);
+	min-height     : 72px;
+	max-height     : 72px;
+	min-width      : 72px;
+	max-width      : 72px;
+	flex-shrink    : 0;
 	border-radius  : 50%;
 	border         : 1px solid var(--color-1);
 	margin-right   : var(--vspace-0_5);
@@ -3962,8 +3965,25 @@ td:last-child {
 		margin-left: var(--vspace-0_25);
 	}
 
-	.s-intro__scroll-down span {
+	.s-intro__scroll-down {
+		grid-column-end: span 8;
+	}
+
+	.s-intro__scroll-down a {
+		flex-direction: column;
+		align-items   : flex-start;
+		display       : flex;
+		width         : 100%;
+	}
+
+	.s-intro__scroll-down a > span:not(.marginTop60) {
 		display: none;
+	}
+
+	.s-intro__scroll-down .marginTop60 {
+		font-size  : 1.4rem;
+		line-height: 1.6;
+		margin-top : 12px;
 	}
 }
 
